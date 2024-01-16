@@ -41,7 +41,7 @@ Polygone<T>::Polygone() {
 }
 
 /*============================================================*/
-/*         Polygone(vector<Point2D<T>> listeSommets)         */
+/*         Polygone(vector<Point2D<T>> listeSommets)          */
 /*============================================================*/
 template <typename T>
 Polygone<T>::Polygone(vector<Point2D<T>> poly) {
