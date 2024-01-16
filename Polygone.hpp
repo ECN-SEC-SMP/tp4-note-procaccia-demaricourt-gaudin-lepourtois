@@ -5,7 +5,7 @@
 
 #include "Point2D.hpp"
 #include <vector>
-#pragma once
+
 using namespace std;
 
 template <typename T>
@@ -18,18 +18,7 @@ template <typename T>
 class Polygone {
 
 protected:
-
-vector<Point2D<T>> sommets;
-
-/* Format
-- sommets : vector<Point2D<T>>
-+ Polygone( )
-+ Polygone(vector<Point2D<T>> listeSommets)
-+ Polygone(Polygone<T, S> poly)
-+ getSommets( ) : vector<Point2D<T>>
-+ setSommets(vector<Point2D<T>> listeSommets) : void + addPoint(Point2D<T>) : void
-+ translate(T x, T y) : void
-*/
+  vector<Point2D<T>> sommets;
 
 public: 
   Polygone();
@@ -49,57 +38,65 @@ public:
 /*============================*/
 template <typename T>
 Polygone<T>::Polygone() {
-
 }
 
-
-/*=================================================================*/
-/*         Polygone(vector<Point2D<T>> listeSommeets)         */
-/*------------------------------------------------------------*/
+/*============================================================*/
+/*         Polygone(vector<Point2D<T>> listeSommets)         */
+/*============================================================*/
 template <typename T>
 Polygone<T>::Polygone(vector<Point2D<T>> poly) {
   this->sommets = poly;
 }
-/*==============================================*/
 
-
-
-// Polygone(Polygone<T, S> poly)
+/*============================================*/
+/*        Polygone(Polygone<T> poly)          */
+/*============================================*/
 template <typename T>
 Polygone<T>::Polygone(Polygone<T> const& poly) {
   this->sommets = poly.getSommets();
 }
 
-// getSommets() : vector<Point2D<T>>
+/*================================================*/
+/*        setSommets() : vector<Point2D<T>>       */
+/*================================================*/
 template <typename T>
 void Polygone<T>::setSommets(vector<Point2D<T>> listeSommets){
   this->sommets = listeSommets;
 }
 
-// getSommets() : vector<Point2D<T>>
+/*================================================*/
+/*        getSommets() : vector<Point2D<T>>       */
+/*================================================*/
 template <typename T>
 vector<Point2D<T>> Polygone<T>::getSommets() const {
   return this->sommets;
 }
 
-// addPoint(Point2D<T>) : void
+/*================================================*/
+/*           addPoint(Point2D<T>) : void          */
+/*================================================*/
 template <typename T>
 void Polygone<T>::addPoint(Point2D<T> point){
   this->sommets.push_back(point);
 }
 
-// translate(T x, T y) : void
+/*================================================*/
+/*           translate(T x, T y) : void           */
+/*================================================*/
 template <typename T>
 void Polygone<T>::translate(T x,T y)
 {
   //On parcours le tableau de sommets
   for (auto it = begin(sommets); it!= end(sommets); ++it)
-  {
-    it->translater(x,y);
+  { 
+    it->translate(x,y);
   }
 }
 
-// operator<<
+/*================================================*/
+/*                  operator<<                    */
+/*================================================*/
+
 template <typename T>
 std::ostream& operator<<(std::ostream &o, Polygone<T> const &R)
 {
