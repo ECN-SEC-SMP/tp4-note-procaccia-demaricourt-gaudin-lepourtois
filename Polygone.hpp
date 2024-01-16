@@ -21,7 +21,7 @@ protected:
 
 vector<Point2D<T>> sommets;
 
-/*
+/* Format
 - sommets : vector<Point2D<T>>
 + Polygone( )
 + Polygone(vector<Point2D<T>> listeSommets)
@@ -40,41 +40,55 @@ public:
   void addPoint(Point2D<T>);
   void translate(T x,T y);
 
-
   friend std::ostream& operator<< <T>(std::ostream &, Polygone const&);
 
 };
 
+/*============================*/
+/*         Polygone()         */
+/*============================*/
 template <typename T>
 Polygone<T>::Polygone() {
 
 }
 
+
+/*=================================================================*/
+/*         Polygone(vector<Point2D<T>> listeSommeets)         */
+/*------------------------------------------------------------*/
 template <typename T>
 Polygone<T>::Polygone(vector<Point2D<T>> poly) {
   this->sommets = poly;
 }
+/*==============================================*/
 
+
+
+// Polygone(Polygone<T, S> poly)
 template <typename T>
 Polygone<T>::Polygone(Polygone<T> const& poly) {
   this->sommets = poly.getSommets();
 }
 
+// getSommets() : vector<Point2D<T>>
 template <typename T>
 void Polygone<T>::setSommets(vector<Point2D<T>> listeSommets){
   this->sommets = listeSommets;
 }
 
+// getSommets() : vector<Point2D<T>>
 template <typename T>
 vector<Point2D<T>> Polygone<T>::getSommets() const {
   return this->sommets;
 }
 
+// addPoint(Point2D<T>) : void
 template <typename T>
 void Polygone<T>::addPoint(Point2D<T> point){
   this->sommets.push_back(point);
 }
 
+// translate(T x, T y) : void
 template <typename T>
 void Polygone<T>::translate(T x,T y)
 {
@@ -85,6 +99,7 @@ void Polygone<T>::translate(T x,T y)
   }
 }
 
+// operator<<
 template <typename T>
 std::ostream& operator<<(std::ostream &o, Polygone<T> const &R)
 {
