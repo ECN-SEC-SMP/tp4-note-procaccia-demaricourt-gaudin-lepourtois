@@ -13,7 +13,7 @@ private:
 
 public:
     /* Constructors */
-    ZA(int num, string prop, Polygone<float> forme, string culture = "", int pConstructible = 0);
+    ZA(int num, string prop, Polygone<int> forme, string culture = "", int pConstructible = 0);
     ZA(Parcelle &other, string culture = "", int pConstructible = 0);
 
     /* Override */

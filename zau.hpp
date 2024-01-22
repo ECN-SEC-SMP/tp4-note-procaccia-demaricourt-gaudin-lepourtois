@@ -5,8 +5,8 @@ class ZAU : public Constructible, public Parcelle
 {
 public:
     /* Constructors */
-    ZAU(int num, string prop, Polygone<float> forme, float pConstructible = 0);
-    ZAU(Parcelle &other, float pConstructible = 0);
+    ZAU(int num, string prop, Polygone<int> forme, int pConstructible = 0);
+    ZAU(Parcelle &other, int pConstructible = 0);
 
     /* Setters */
     float surfaceConstructible() const override;
