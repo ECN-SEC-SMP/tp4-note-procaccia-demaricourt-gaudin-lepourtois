@@ -9,7 +9,7 @@
 #include "constant.hpp"
 
 using namespace std;
-ZA::ZA(int num, string prop, Polygone<float> forme, string culture, int pConstructible) : ZN(num, prop, forme, pConstructible), Constructible()
+ZA::ZA(int num, string prop, Polygone<int> forme, string culture, int pConstructible) : ZN(num, prop, forme, pConstructible), Constructible()
 {
     this->culture = culture;
 }
