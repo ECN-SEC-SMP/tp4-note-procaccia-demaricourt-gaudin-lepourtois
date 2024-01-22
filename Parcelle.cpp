@@ -5,13 +5,13 @@
 /*         Parcelle()         */
 /*============================*/
 ///// Constructors /////
-Parcelle::Parcelle(int num, string prop, Polygone<int> forme) {
+Parcelle::Parcelle(int num, string prop, Polygone<int> forme, int pConstructible) {
   this->numero = num;
   this->proprietaire = prop;
   this->forme = forme;
 }
 
-Parcelle::Parcelle(Parcelle &parc) {
+Parcelle::Parcelle(Parcelle &parc, int pConstructible) {
   this->numero = parc.getNumero();
   this->proprietaire = parc.getProprietaire();
   this->forme = parc.getForme();
