@@ -31,6 +31,6 @@ public:
     /* Setters */
     void setNumero(int n);
     void setProprietaire(string prop);
-    void setForme(Polygone<float> forme);
+    void setForme(Polygone<float> _forme);
     void setPConstructible(int pConstructible);
 };
