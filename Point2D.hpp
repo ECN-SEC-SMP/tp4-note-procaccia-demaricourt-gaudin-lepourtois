@@ -41,7 +41,7 @@ class Point2D {
     friend ostream& operator<< <T>(ostream&, Point2D<T> const &);
 };
 
-///// Constructeurs /////
+///// Constructors /////
 template <typename T>
 Point2D<T>::Point2D(const T& x, const T& y) {
     this->x = x;
