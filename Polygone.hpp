@@ -67,22 +67,22 @@ Polygone<T>::Polygone(string stringListePoints) {
   regex regex("\\[(-?\\d+);(-?\\d+)\\]");
 
   // Look for similitudes in the string
-  cout << "Looking for similitudes in the string: " << stringListePoints << endl;
   smatch match;
   string::const_iterator searchStart(stringListePoints.cbegin());
 
   // Vector of Points2D
   vector<Point2D<int>> points;
   
-  while (std::regex_search(searchStart, stringListePoints.cend(), match, regex)) {
+  while (regex_search(searchStart, stringListePoints.cend(), match, regex)) {
     // Add point in the vector
-    cout << value1 << " " << value2 << std::endl;
-    points.push_back(Point2D<int>(stoi(match[1]), stoi(match[2])));
-    //cout << value1 << " " << value2 << std::endl;
+    Point2D<int> point(stoi(match[1]), stoi(match[2]));
+    points.push_back(point);
 
     // Update of starting point for the next seek
     searchStart = match.suffix().first;
   }
+  
+  this->sommets = points;
 }
 
 /*================================================*/
