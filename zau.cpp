@@ -9,10 +9,10 @@
 
 using namespace std;
 
-ZAU::ZAU(int num, string prop, Polygone<float> forme, float pConstructible) : Parcelle(num, prop, forme, pConstructible)
+ZAU::ZAU(int num, string prop, Polygone<int> forme, int pConstructible) : Parcelle(num, prop, forme, pConstructible)
 {
 }
-ZAU::ZAU(Parcelle &other, float pConstructible) : Parcelle(other, pConstructible)
+ZAU::ZAU(Parcelle &other, int pConstructible) : Parcelle(other, pConstructible)
 {
 }
 
