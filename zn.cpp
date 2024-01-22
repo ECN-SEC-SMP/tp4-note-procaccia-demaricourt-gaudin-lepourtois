@@ -6,7 +6,7 @@
 
 using namespace std;
 
-ZN::ZN(int num, string prop, Polygone<float> forme, int pConstructible) : Parcelle(num, prop, forme, pConstructible) {}
+ZN::ZN(int num, string prop, Polygone<int> forme, int pConstructible) : Parcelle(num, prop, forme, pConstructible) {}
 ZN::ZN(Parcelle &other, int pConstructible) : Parcelle(other, pConstructible) {}
 
 ostream &operator<<(ostream &os, ZN const &obj)
