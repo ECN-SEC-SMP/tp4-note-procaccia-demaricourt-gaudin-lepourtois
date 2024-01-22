@@ -14,6 +14,7 @@ private:
     string proprietaire;
     float surface;
     Polygone<float> forme;
+    int pConstructible;
 
 public:
     /* Constructors */
@@ -25,9 +26,11 @@ public:
     string getProprietaire(void) const;
     float getSurface(void) const;
     Polygone<float> getForme(void) const;
+    int getPConstructible(void) const;
 
     /* Setters */
     void setNumero(int n);
     void setProprietaire(string prop);
     void setForme(Polygone<float> forme);
+    void setPConstructible(int pConstructible);
 };
