@@ -41,6 +41,9 @@ int main() {
   cout << "Polygone A construit par défaut : "<< polygoneA << endl;
   cout << "Polygone B vecteur de point A, C et D : " << polygoneB << endl;
 
+  Polygone<int> polygoneForGui("[128;100] [146;171] [102;194] [55;100] [111;50]");
+  cout << "Polygone pour Gui avec ajout de points : " << polygoneForGui << endl;
+
   // ADD
   polygoneA.addPoint(pointB);
   polygoneA.addPoint(Point2D<float>(1.2, 3.0));

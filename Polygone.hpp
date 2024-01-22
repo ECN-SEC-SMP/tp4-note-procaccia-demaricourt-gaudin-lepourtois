@@ -5,6 +5,7 @@
 
 #include "Point2D.hpp"
 #include <vector>
+#include <regex>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ protected:
 
 public: 
   Polygone();
+  Polygone(string stringListePoints);
   Polygone(vector<Point2D<T>> listeSommeets);
   Polygone(Polygone<T> const& poly);
   vector<Point2D<T>> getSommets() const;
@@ -54,6 +56,33 @@ Polygone<T>::Polygone(vector<Point2D<T>> poly) {
 template <typename T>
 Polygone<T>::Polygone(Polygone<T> const& poly) {
   this->sommets = poly.getSommets();
+}
+
+/*============================================*/
+/*     Polygone(string stringListePoints)     */
+/*============================================*/
+template <typename T>
+Polygone<T>::Polygone(string stringListePoints) {
+  // Define regular expression, named pattern
+  regex regex("\\[(-?\\d+);(-?\\d+)\\]");
+
+  // Look for similitudes in the string
+  cout << "Looking for similitudes in the string: " << stringListePoints << endl;
+  smatch match;
+  string::const_iterator searchStart(stringListePoints.cbegin());
+
+  // Vector of Points2D
+  vector<Point2D<int>> points;
+  
+  while (std::regex_search(searchStart, stringListePoints.cend(), match, regex)) {
+    // Add point in the vector
+    cout << value1 << " " << value2 << std::endl;
+    points.push_back(Point2D<int>(stoi(match[1]), stoi(match[2])));
+    //cout << value1 << " " << value2 << std::endl;
+
+    // Update of starting point for the next seek
+    searchStart = match.suffix().first;
+  }
 }
 
 /*================================================*/
