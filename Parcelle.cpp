@@ -15,7 +15,6 @@ Parcelle::Parcelle(Parcelle &parc) {
   this->numero = parc.getNumero();
   this->proprietaire = parc.getProprietaire();
   this->forme = parc.getForme();
-  this->type = parc.getType();
   this->surface = parc.getSurface();
 }
 
@@ -28,7 +27,6 @@ float Parcelle::getSurface(void) const { return surface; }
 
 Polygone<int> Parcelle::getForme(void) const { return forme; }
 
-string Parcelle::getType(void) const { return type; }
 
 ///// Setters /////
 void Parcelle::setNumero(int n) { numero = n; }
@@ -36,9 +34,6 @@ void Parcelle::setNumero(int n) { numero = n; }
 void Parcelle::setProprietaire(string prop) { proprietaire = prop; }
 
 void Parcelle::setForme(Polygone<int> _forme) { forme = _forme; }
-
-// virtuelle pure selon le sujet ??
-virtual void Parcelle::setType(string t) { type = t; }
 
 
 
@@ -48,7 +43,6 @@ ostream &operator<<(ostream &s, Parcelle const &p) {
        << "Numero : " << p.getNumero() << endl
        << "Proprietaire : " << p.getProprietaire() << endl
        << "Surface : " << p.getSurface() << endl
-       << "Forme : " << p.getForme() << endl
-       << "Type : " << p.getType() << endl;
+       << "Forme : " << p.getForme() << endl;
   return s;
 }

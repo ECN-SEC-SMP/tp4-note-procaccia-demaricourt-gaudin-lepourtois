@@ -7,7 +7,6 @@
 /*============================*/
 class Parcelle{
     private:
-        string type;
         int numero;
         string proprietaire;
         float surface;
@@ -20,11 +19,9 @@ class Parcelle{
         string getProprietaire(void) const;
         float getSurface(void) const;
         Polygone<int> getForme(void) const;
-        string getType(void) const;
         void setNumero(int n);
         void setProprietaire(string prop);
         void setForme(Polygone<int> _forme);
-        virtual void setType(string t);
 
         friend ostream& operator<<(ostream& s, Parcelle const& p);
 };
