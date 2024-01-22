@@ -18,8 +18,8 @@ private:
 
 public:
     /* Constructors */
-    Parcelle(int num, string prop, Polygone<float> forme, int pConstructible = 0);
-    Parcelle(Parcelle &other, int pConstructible = 0);
+    Parcelle(int num, string prop, Polygone<float> forme, int pConstructible);
+    Parcelle(Parcelle &other, int pConstructible);
 
     /* Getters */
     int getNumero(void) const;
