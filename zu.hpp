@@ -7,8 +7,8 @@ private:
 
 public:
     /* Constructors */
-    ZU(int num, string prop, Polygone<float> forme, float pConstructible = 0, float sConstruite = 0);
-    ZU(Parcelle &other, float pConstructible = 0, float sConstruite = 0);
+    ZU(int num, string prop, Polygone<int> forme, int pConstructible = 0, float sConstruite = 0);
+    ZU(Parcelle &other, int pConstructible = 0, float sConstruite = 0);
 
     /* Setters */
     float surfaceConstructible() const override;

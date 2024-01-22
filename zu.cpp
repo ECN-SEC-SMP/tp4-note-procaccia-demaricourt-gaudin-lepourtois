@@ -10,12 +10,12 @@
 
 using namespace std;
 
-ZU::ZU(int num, string prop, Polygone<float> forme, float pConstructible, float sConstruite) : ZAU(num, prop, forme, pConstructible)
+ZU::ZU(int num, string prop, Polygone<int> forme, int pConstructible, float sConstruite) : ZAU(num, prop, forme, pConstructible)
 {
     setSurfaceConstruite(sConstruite);
 }
 
-ZU::ZU(Parcelle &other, float pConstructible, float sConstruite) : ZAU(other, pConstructible)
+ZU::ZU(Parcelle &other, int pConstructible, float sConstruite) : ZAU(other, pConstructible)
 {
     setSurfaceConstruite(sConstruite);
 }
