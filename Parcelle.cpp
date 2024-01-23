@@ -18,6 +18,8 @@ Parcelle::Parcelle(Parcelle &parc, int pConstructible) {
 }
 
 ///// Getters /////
+string Parcelle::getType(void) const { return type; }
+
 int Parcelle::getNumero(void) const { return numero; }
 
 string Parcelle::getProprietaire(void) const { return proprietaire; }
@@ -28,6 +30,8 @@ Polygone<int> Parcelle::getForme(void) const { return forme; }
 
 
 ///// Setters /////
+void Parcelle::setType(string t) { type = t; }
+
 void Parcelle::setNumero(int n) { numero = n; }
 
 void Parcelle::setProprietaire(string prop) { proprietaire = prop; }
@@ -39,6 +43,7 @@ void Parcelle::setForme(Polygone<int> _forme) { forme = _forme; }
 // Overload of << operator
 ostream &operator<<(ostream &s, Parcelle const &p) {
   cout << "Informations de la parcelle : " << endl
+       << "Type : " << p.getType() << endl
        << "Numero : " << p.getNumero() << endl
        << "Proprietaire : " << p.getProprietaire() << endl
        << "Surface : " << p.getSurface() << endl

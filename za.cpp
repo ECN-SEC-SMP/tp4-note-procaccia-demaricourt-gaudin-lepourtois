@@ -11,11 +11,13 @@
 using namespace std;
 ZA::ZA(int num, string prop, Polygone<int> forme, string culture, int pConstructible) : ZN(num, prop, forme, pConstructible), Constructible()
 {
+    this->setType("ZA");
     this->culture = culture;
 }
 
 ZA::ZA(Parcelle &other, string culture, int pConstructible) : ZN(other, pConstructible)
 {
+    this->setType("ZA");
     this->culture = culture;
 }
 

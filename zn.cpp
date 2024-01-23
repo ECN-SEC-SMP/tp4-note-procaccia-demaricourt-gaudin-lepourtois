@@ -6,8 +6,8 @@
 
 using namespace std;
 
-ZN::ZN(int num, string prop, Polygone<int> forme, int pConstructible) : Parcelle(num, prop, forme, pConstructible) {}
-ZN::ZN(Parcelle &other, int pConstructible) : Parcelle(other, pConstructible) {}
+ZN::ZN(int num, string prop, Polygone<int> forme, int pConstructible) : Parcelle(num, prop, forme, pConstructible) { this->setType("ZN"); }
+ZN::ZN(Parcelle &other, int pConstructible) : Parcelle(other, pConstructible) { this->setType("ZN"); }
 
 ostream &operator<<(ostream &os, ZN const &obj)
 {

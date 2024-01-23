@@ -12,11 +12,13 @@ using namespace std;
 
 ZU::ZU(int num, string prop, Polygone<int> forme, int pConstructible, float sConstruite) : ZAU(num, prop, forme, pConstructible)
 {
+    this->setType("ZU");
     setSurfaceConstruite(sConstruite);
 }
 
 ZU::ZU(Parcelle &other, int pConstructible, float sConstruite) : ZAU(other, pConstructible)
 {
+    this->setType("ZU");
     setSurfaceConstruite(sConstruite);
 }
 

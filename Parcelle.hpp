@@ -10,6 +10,7 @@ using namespace std;
 class Parcelle
 {
 private:
+    string type;
     int numero;
     string proprietaire;
     float surface;
@@ -22,6 +23,7 @@ public:
     Parcelle(Parcelle &parc, int pConstructible = 0);
 
     /* Getters */
+    string getType(void) const;
     int getNumero(void) const;
     string getProprietaire(void) const;
     float getSurface(void) const;
@@ -29,6 +31,7 @@ public:
     int getPConstructible(void) const;
 
     /* Setters */
+    void setType(string t);
     void setNumero(int n);
     void setProprietaire(string prop);
     void setForme(Polygone<int> _forme);
