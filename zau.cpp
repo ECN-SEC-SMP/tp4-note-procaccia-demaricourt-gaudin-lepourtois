@@ -24,11 +24,6 @@ float ZAU::surfaceConstructible() const
     return ((getPConstructible() / 100) * this->getSurface());
 }
 
-float ZAU::surfaceConstructible() const
-{
-    return ((getPConstructible() / 100) * this->getSurface());
-}
-
 ostream &operator<<(ostream &os, ZAU const &obj)
 {
     os << "Parcelle n°" << to_string(obj.getNumero()) << ":" << endl;
