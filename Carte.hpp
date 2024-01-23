@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -13,6 +13,6 @@ private:
   float surfaceTotale;
 
 public: 
-  Carte(ofstream file);
-  void saveCarte(string fileName);
-};*/
+  Carte(ifstream& inputFile);
+  void saveCarte(string savePath);
+};
