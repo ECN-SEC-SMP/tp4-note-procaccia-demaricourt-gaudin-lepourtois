@@ -4,6 +4,10 @@
 #include <string>
 #include <regex>
 #include "Parcelle.hpp"
+#include "za.hpp"
+#include "zau.hpp"
+#include "zn.hpp"
+#include "zu.hpp"
 
 using namespace std;
 

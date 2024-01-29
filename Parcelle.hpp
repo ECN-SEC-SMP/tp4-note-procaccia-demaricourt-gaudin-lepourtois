@@ -36,5 +36,7 @@ public:
     void setProprietaire(string prop);
     void setForme(Polygone<int> _forme);
     void setPConstructible(int pConstructible);
+
+    virtual ~Parcelle() = default;  // virtual destructor
 };
 
