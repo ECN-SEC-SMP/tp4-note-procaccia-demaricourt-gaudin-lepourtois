@@ -1,3 +1,10 @@
+#pragma once
+
+#include <ostream>
+#include <string>
+#include <vector>
+
+#include "Polygone.hpp"
 #include "zau.hpp"
 
 class ZU : public ZAU

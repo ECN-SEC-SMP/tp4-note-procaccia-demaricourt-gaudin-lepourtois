@@ -13,7 +13,7 @@ template <typename T>
 class Polygone;
 
 template <typename T>
-std::ostream& operator<<(std::ostream &, Polygone<T> const&);
+ostream& operator<<(ostream &, Polygone<T> const&);
 
 template <typename T>
 class Polygone {
@@ -31,7 +31,7 @@ public:
   void addPoint(Point2D<T>);
   void translate(T x,T y);
 
-  friend std::ostream& operator<< <T>(std::ostream &, Polygone const&);
+  friend ostream& operator<< <T>(ostream &, Polygone const&);
 
 };
 
@@ -72,7 +72,7 @@ Polygone<T>::Polygone(string stringListePoints) {
 
   // Vector of Points2D
   vector<Point2D<int>> points;
-  
+
   while (regex_search(searchStart, stringListePoints.cend(), match, regex)) {
     // Add point in the vector
     Point2D<int> point(stoi(match[1]), stoi(match[2]));
@@ -81,7 +81,7 @@ Polygone<T>::Polygone(string stringListePoints) {
     // Update of starting point for the next seek
     searchStart = match.suffix().first;
   }
-  
+
   this->sommets = points;
 }
 

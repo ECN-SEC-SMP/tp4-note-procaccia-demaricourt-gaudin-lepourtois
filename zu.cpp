@@ -1,12 +1,4 @@
-#pragma once
-
-#include <ostream>
-#include <string>
-#include <vector>
-
-#include "Polygone.hpp"
 #include "zu.hpp"
-#include "constant.hpp"
 
 using namespace std;
 
@@ -40,13 +32,13 @@ float ZU::getSurfaceConstruite() const
 
 ostream &operator<<(ostream &os, ZU const &obj)
 {
-    os << "Parcelle n°" << to_string(obj.getNumero()) << ":" << endl;
-    os << "   Type                 : ZU" << endl;
-    os << "   Polygone             : " << obj.getForme() << endl;
-    os << "   Propriétaire         : " << obj.getProprietaire() << endl;
-    os << "   Surface              : " << to_string(obj.getSurface()) << endl;
-    os << "   Surface construite   : " << to_string(obj.getSurfaceConstruite()) << "%" << endl;
-    os << "   pConstructible       : " << to_string(obj.getPConstructible()) << "%" << endl;
-    os << "   Surface constructible: " << to_string(obj.surfaceConstructible()) << "%" << endl;
-    return os;
+  os << "Parcelle n°" << to_string(obj.getNumero()) << ":" << endl;
+  os << "   Type                          : " << obj.getType() << endl;
+  os << "   Polygone                      : " << obj.getForme() << endl;
+  os << "   Propriétaire                  : " << obj.getProprietaire() << endl;
+  os << "   Surface                       : " << to_string(obj.getSurface()) << endl;
+  os << "   % constructible               : " << to_string(obj.getPConstructible()) << "%" << endl;
+  os << "   Surface construite            : " << to_string(obj.getSurfaceConstruite()) << endl;
+  os << "   Surface à construire restante : " << to_string(obj.surfaceConstructible()) << endl;
+  return os;
 }

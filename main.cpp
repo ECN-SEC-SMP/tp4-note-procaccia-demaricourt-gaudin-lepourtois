@@ -1,4 +1,9 @@
 #include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <memory>  // Pour std::unique_ptr
+
 #include "Point2D.hpp"
 #include "Polygone.hpp"
 #include "za.hpp"
@@ -6,11 +11,14 @@
 #include "zn.hpp"
 #include "zu.hpp"
 
+#include "Carte.hpp"
+
 using namespace std;
 
 void testPolygone();
 void testPoint();
 void testZAD();
+void testCarte();
 
 int main()
 {
@@ -28,11 +36,21 @@ int main()
   /*     TESTING POLYGONE     */
   /*==========================*/
   testPolygone();
+  /*==========================*/
+  /* TESTING Specific PARCELLE*/
+  /*==========================*/
   testZAD();
+  /*==========================*/
+  /*       TESTING CARTE      */
+  /*==========================*/
+  testCarte();
 }
 
 void testPoint()
 {
+  cout  << "--------------------------" << endl
+        << "      TESTING POINT2D     " << endl
+        << "--------------------------" << endl << endl;
   // CREATE POINT
   Point2D<int> pointA(2, 2);
   Point2D<float> pointB(2.5, 0.5);
@@ -52,6 +70,10 @@ void testPoint()
 
 void testPolygone()
 {
+  cout  << endl
+        << "--------------------------" << endl
+        << "     TESTING POLYGONE     " << endl
+        << "--------------------------" << endl << endl;
   Point2D<int> pointA(2, 2);
   Point2D<float> pointB(2.5, 0.5);
   Point2D<int> pointC;
@@ -87,6 +109,10 @@ void testPolygone()
 
 void testZAD()
 {
+  cout  << endl
+        << "--------------------------" << endl
+        << "TESTING Specific PARCELLE " << endl
+        << "--------------------------" << endl << endl;
   Point2D<int> pointA(2, 2);
   Point2D<float> pointB(2.5, 0.5);
   Point2D<int> pointC;
@@ -94,15 +120,47 @@ void testZAD()
 
   Polygone<int> polygone(vector<Point2D<int>>{pointA, pointD, pointC});
 
-  ZN zn = ZN(1, string("Henry"), polygone, 0);
-  cout << zn;
+  ZN zn(1, string("Gui"), polygone, 4);
+  ZA za(2, string("Polo"), polygone, "Blé", 8);
+  ZAU zau(3, string("Simzer"), polygone, 10);
+  ZU zu(4, string("Jiben"), polygone, 16, 10.0);
+  
+  cout << zn << endl << za << endl << zau << endl << zu << endl << endl;
+}
 
-  ZA za = ZA(1, string("Henry"), polygone, "Blé", 0);
-  cout << za;
+void testCarte() 
+{
+  cout  << endl
+        << "--------------------------" << endl
+        << "       TESTING CARTE      " << endl
+        << "--------------------------" << endl << endl;
+  // Test surcharge << de ZA
+  ZA za(10, "Jiben", Polygone<int>("[0;0] [10;0] [10;10] [0;10]"), "Blé", 50);
+  cout << za << endl;
 
-  ZAU zau = ZAU(1, string("Henry"), polygone, 10);
-  cout << zau;
+  ifstream inputFile("Parcelles.txt");
+  if (inputFile.is_open()) {
+    Carte maCarte(inputFile);
+    inputFile.close();
 
-  ZU zu = ZU(1, string("Henry"), polygone, 0, 10.0);
-  cout << zu;
+    /// Afficher les propriétés de chaque Parcelle spécifique dans le vecteur
+    for (const auto& parcelle : maCarte.getParcelles()) {
+      if (parcelle->getType() == "ZU") {
+        cout << dynamic_cast<ZU &>(*parcelle) << endl;  // Utilise l'opérateur << surchargé de la classe spécifique
+      } else if (parcelle->getType() == "ZAU") {
+        cout << dynamic_cast<ZAU &>(*parcelle) << endl;  // Utilise l'opérateur << surchargé de la classe spécifique
+      } else if (parcelle->getType() == "ZA") {
+        cout << dynamic_cast<ZA &>(*parcelle) << endl;  // Utilise l'opérateur << surchargé de la classe spécifique
+      } else if (parcelle->getType() == "ZAU") {
+        cout << dynamic_cast<ZN &>(*parcelle) << endl;  // Utilise l'opérateur << surchargé de la classe spécifique
+      }
+    }
+
+    cout << endl << "Surface totale de la carte : " << maCarte.getSurfaceTotale() << endl;
+
+    maCarte.saveCarte("saveFile.txt");
+
+  } else {
+    cerr << "Impossible d'ouvrir le fichier." << endl;
+  }
 }

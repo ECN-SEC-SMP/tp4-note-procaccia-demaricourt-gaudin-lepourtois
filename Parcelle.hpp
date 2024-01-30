@@ -5,6 +5,8 @@
 
 #include "Polygone.hpp"
 
+#define MAX_CONST_ZA_SIZE 200
+
 using namespace std;
 
 class Parcelle
@@ -37,6 +39,10 @@ public:
     void setForme(Polygone<int> _forme);
     void setPConstructible(int pConstructible);
 
+    /* Destructor */
     virtual ~Parcelle() = default;  // virtual destructor
+
+    /* Friends */
+    friend ostream &operator<<(ostream &s, Parcelle const &p);
 };
 

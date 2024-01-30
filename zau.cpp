@@ -1,10 +1,3 @@
-#pragma once
-
-#include <ostream>
-#include <string>
-#include <vector>
-
-#include "Polygone.hpp"
 #include "zau.hpp"
 
 using namespace std;
@@ -27,11 +20,10 @@ float ZAU::surfaceConstructible() const
 ostream &operator<<(ostream &os, ZAU const &obj)
 {
     os << "Parcelle n°" << to_string(obj.getNumero()) << ":" << endl;
-    os << "   Type                 : ZAU" << endl;
+    os << "   Type                 : " << obj.getType() << endl;
     os << "   Polygone             : " << obj.getForme() << endl;
     os << "   Propriétaire         : " << obj.getProprietaire() << endl;
     os << "   Surface              : " << to_string(obj.getSurface()) << endl;
-    os << "   pConstructible       : " << to_string(obj.getPConstructible()) << "%" << endl;
-    os << "   Surface constructible: " << to_string(obj.surfaceConstructible()) << endl;
+    os << "   % constructible      : " << to_string(obj.getPConstructible()) << "%" << endl;
     return os;
 }

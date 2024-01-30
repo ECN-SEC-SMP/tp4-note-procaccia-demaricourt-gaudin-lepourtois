@@ -1,12 +1,17 @@
 #pragma once
 
 #include <string.h>
-using namespace std;
+#include <ostream>
+#include <string>
+#include <vector>
 
 #include "constructible.hpp"
 #include "zn.hpp"
+#include "Parcelle.hpp"
 
-class ZA : public Constructible, public ZN
+using namespace std;
+
+class ZA : public ZN, public Constructible
 {
 private:
     string culture = "";

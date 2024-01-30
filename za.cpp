@@ -1,14 +1,7 @@
-#pragma once
-
-#include <ostream>
-#include <string>
-#include <vector>
-
 #include "za.hpp"
-#include "Parcelle.hpp"
-#include "constant.hpp"
 
 using namespace std;
+
 ZA::ZA(int num, string prop, Polygone<int> forme, string culture, int pConstructible) : ZN(num, prop, forme, pConstructible), Constructible()
 {
     this->setType("ZA");
@@ -46,12 +39,10 @@ string ZA::getCulture() const
 ostream &operator<<(ostream &os, ZA const &obj)
 {
     os << "Parcelle n°" << to_string(obj.getNumero()) << ":" << endl;
-    os << "   Type                 : ZA" << endl;
+    os << "   Type                 : " << obj.getType() <<endl;
     os << "   Polygone             : " << obj.getForme() << endl;
     os << "   Propriétaire         : " << obj.getProprietaire() << endl;
     os << "   Surface              : " << to_string(obj.getSurface()) << endl;
     os << "   Type culture         : " << obj.getCulture() << endl;
-    os << "   Constructible        : " << to_string(obj.getPConstructible()) << "%" << endl;
-    os << "   Surface constructible: " << to_string(obj.surfaceConstructible()) << endl;
     return os;
 }
